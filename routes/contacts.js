@@ -15,7 +15,6 @@ router.get("/", auth, async (req, res) => {
     const contacts = await Contact.find({ user: req.user.id }).sort({
       date: -1,
     });
-    console.log("contacts: ", contacts);
     res.json(contacts);
   } catch (err) {
     res.status(500).send("contacts.js: Server error.");
